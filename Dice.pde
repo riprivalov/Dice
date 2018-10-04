@@ -1,4 +1,5 @@
-	int myX, myY;
+int myX, myY;
+int sum = 0;
 void setup()
 {
 	size(1500,1500);
@@ -6,6 +7,7 @@ void setup()
 }
 void draw()
 {
+	sum = 0;
 	background(0,0,0);
 	for(int y=0;y<=1500;y=y+50){
 			for(int x=0;x<=1500;x=x+50){
@@ -15,6 +17,9 @@ void draw()
 			bob.roll();
 		}
 	}
+	fill(155,155,255);
+	textSize(36);
+	text("The number of dots is:" + sum, 750,100);
 
 }
 void mousePressed()
@@ -34,6 +39,7 @@ class Die //models one single dice cube
 
 	}
 	void roll(){
+			sum += f;
 			if(f == 1){
 			fill(255,0,x);
 			ellipse(x + 15,y+25,10,10);
